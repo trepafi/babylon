@@ -1,11 +1,38 @@
-div
-  div Book a Consultation
-  
-  md-card
-    div 
-      p Book the consultation for
-      div
-        div {{ patient.name }}
-        div(ng-repeat="relative in patient.relatives") {{ relative.name }}
-        div someone else
-          
+div(layout="column"  layout-align="center center")
+  h1.main-card Book a Consultation
+  md-card.main-card
+    .booking-step
+      .p-title Book an appointment for
+      div(layout="row")
+        l-faces(flex="33" name="'Yourself'" image="patient.picture.thumbnail")
+        l-faces(flex="33" ng-repeat="relative in patient.relatives | limitTo:1" name="relative.fullname" image="relative.picture.thumbnail")
+        l-faces(flex="33" name="'Someone else'" icon="'person_add'")
+    md-divider
+
+    .booking-step
+      .p-title Select a healtcare professional
+      div(layout="row")
+        l-faces(flex="25" name="'GP'" icon="'text_format'" ng-class="{'type-active': professionalType == 'GP'}")
+        l-faces(flex="25" name="'Nurse'" icon="'text_format'" ng-class="{'type-active': professionalType == 'NU'}")
+        l-faces(flex="25" name="'Therapist'" icon="'text_format'" ng-class="{'type-active': professionalType == 'TH'}")
+        l-faces(flex="25" name="'Specialist'" icon="'text_format'" ng-class="{'type-active': professionalType == 'SP'}")
+    md-divider
+
+    .booking-step
+      .p-title Select the doctor
+    md-divider
+
+    .booking-step
+      .p-title Next available appointment
+    md-divider
+      
+    .booking-step  
+      p Get the best from your consultation by uploading a photo or a note
+      div 
+        p Attach a Photo
+        p Add a Note
+    md-divider    
+    
+    .booking-step
+      md-button Book a consultation
+    

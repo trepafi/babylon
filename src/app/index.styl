@@ -1,46 +1,47 @@
-@import url("http://fonts.googleapis.com/css?family=Roboto\+Slab:400,700|Roboto:400,700,700italic,400italic")
+@import url("http://fonts.googleapis.com/css?family=Roboto")
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons")
 
 html
-  font-family 'Roboto Slab', serif
+  font-family 'Roboto', sans-serif
 
 [layout=row]
   flex-direction row
 
-.browsehappy
-  margin 0.2em 0
-  background #ccc
-  color #000
-  padding 0.2em 0
+.main-card
+  width 80%
 
-.thumbnail
-  height 200px
-  img
-    &.pull-right
-      width 50px
+.booking-step
+  margin 20px 0 30px
 
-md-toolbar
-  &.md-default-theme
-    background-color black
+.capitalize
+  text-transform capitalize
 
-section
-  &.jumbotron
-    margin-bottom 30px
-    padding 1px 30px
-    background-color #5aadbb
-    text-align center
-    color white
-    h1
-      font-size 3em
+.faces-img
+  border-radius 50%
+  width 80px
 
-.techs
-  display flex
-  flex-flow row wrap
-  md-card
-    width 30%
-    img
-      &.pull-right
-        float right
-        width 50px
+.faces-icon
+  font-size 80px
+  color white
+  background black
+  border-radius 50%
+
+.type-active
+  .faces-icon
+    background blue
+
+
+.p-title
+  text-transform uppercase
+  text-align center
+  margin 20px 0
+  font-size 20px
+
+.centered-text
+  text-align center
+
+
+
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your stylus files automatically */
