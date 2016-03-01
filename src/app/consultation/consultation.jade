@@ -1,0 +1,11 @@
+div
+  div Book a Consultation
+  
+  md-card
+    div 
+      p Book the consultation for
+      div
+        div {{ patient.name }}
+        div(ng-repeat="relative in patient.relatives") {{ relative.name }}
+        div someone else
+          
