@@ -52,7 +52,18 @@ To complete the test I still need to solve this:
 * [ ] Add funny icons
 * [ ] Add health related icons
 
+## Run the test
+To make the test work you need to execute on a terminal
+```
+$ npm install
+$ bower install
+$ gulp serve
+```
+
+*assuming you already have node, npm, bower and gulp installed*
+
+Then open a browser tab to access to `http://localhost:3000/`
 
 
 ## Tagging
-* v0.1 The test is at 80% of the stage
+* **Tag v0.1** The test is at 80% of the stage
