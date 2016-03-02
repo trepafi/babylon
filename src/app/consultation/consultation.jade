@@ -12,18 +12,21 @@ div(layout="column"  layout-align="center center")
     .booking-step
       .p-title Select a healtcare professional
       div(layout="row")
-        l-faces(flex="25" name="'GP'" icon="'text_format'" ng-class="{'type-active': professionalType == 'GP'}")
-        l-faces(flex="25" name="'Nurse'" icon="'text_format'" ng-class="{'type-active': professionalType == 'NU'}")
-        l-faces(flex="25" name="'Therapist'" icon="'text_format'" ng-class="{'type-active': professionalType == 'TH'}")
-        l-faces(flex="25" name="'Specialist'" icon="'text_format'" ng-class="{'type-active': professionalType == 'SP'}")
+        l-faces(flex="25" ng-click="setProfessionalType('GP')" name="'GP'" icon="'text_format'" ng-class="{'type-active': professionalType == 'GP'}")
+        l-faces(flex="25" ng-click="setProfessionalType('NU')" name="'Nurse'" icon="'text_format'" ng-class="{'type-active': professionalType == 'NU'}")
+        l-faces(flex="25" ng-click="setProfessionalType('TH')" name="'Therapist'" icon="'text_format'" ng-class="{'type-active': professionalType == 'TH'}")
+        l-faces(flex="25" ng-click="setProfessionalType('SP')" name="'Specialist'" icon="'text_format'" ng-class="{'type-active': professionalType == 'SP'}")
     md-divider
 
-    .booking-step
+    .booking-step.centered-text
       .p-title Select the doctor
+      md-button.bh-primary(ng-click="selectDoctor($event)") Select
+      .selected(ng-if="!!selectedDoctor") {{ selectedDoctor.name }}
     md-divider
 
     .booking-step
       .p-title Next available appointment
+      .selected {{ selectedDoctor.nextAvailable }}
     md-divider
       
     .booking-step  

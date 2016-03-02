@@ -1,8 +1,35 @@
 @import url("http://fonts.googleapis.com/css?family=Roboto")
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons")
 
+$green = #2AD5BB
+$purple = #755C8A
+
 html
   font-family 'Roboto', sans-serif
+
+
+
+
+.bh-primary
+  color #FFF
+  background-color rgb(42,213,187)
+  border-radius 10px 0 0 10px
+  font-size 16px
+
+.bh-primary:not([disabled]):hover
+  color white
+  background-color rgb(42,213,187)
+
+.bh-primary[disabled]
+  color white
+  background-color color white
+
+.bg-green
+  background-color $green !important
+
+.bg-purple
+  background-color $purple !important
+
 
 [layout=row]
   flex-direction row
@@ -12,6 +39,9 @@ html
 
 .booking-step
   margin 20px 0 30px
+
+  .selected
+    background-color #2ad5bb
 
 .capitalize
   text-transform capitalize
