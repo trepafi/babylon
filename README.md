@@ -51,3 +51,8 @@ To complete the test I still need to solve this:
 * [ ] Add a loader to wait for date from `Random API`
 * [ ] Add funny icons
 * [ ] Add health related icons
+
+
+
+## Tagging
+* v0.1 The test is at 80% of the stage
