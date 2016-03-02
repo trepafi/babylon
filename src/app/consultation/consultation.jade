@@ -12,18 +12,18 @@ div(layout="column"  layout-align="center center")
     .booking-step
       .p-title Select a healtcare professional
       div(layout="row")
-        l-faces(flex="25" ng-click="setProfessionalType('GP')" name="'GP'" icon="'text_format'" ng-class="{'type-active': professionalType == 'GP'}")
-        l-faces(flex="25" ng-click="setProfessionalType('NU')" name="'Nurse'" icon="'text_format'" ng-class="{'type-active': professionalType == 'NU'}")
-        l-faces(flex="25" ng-click="setProfessionalType('TH')" name="'Therapist'" icon="'text_format'" ng-class="{'type-active': professionalType == 'TH'}")
-        l-faces(flex="25" ng-click="setProfessionalType('SP')" name="'Specialist'" icon="'text_format'" ng-class="{'type-active': professionalType == 'SP'}")
+        l-faces(flex="25" ng-click="setProfessionalType('GP')" name="'GP'" icon="'content_paste'" ng-class="{'type-active': professionalType == 'GP'}")
+        l-faces(flex="25" ng-click="setProfessionalType('NU')" name="'Nurse'" icon="'add'" ng-class="{'type-active': professionalType == 'NU'}")
+        l-faces(flex="25" ng-click="setProfessionalType('TH')" name="'Therapist'" icon="'check_circle'" ng-class="{'type-active': professionalType == 'TH'}")
+        l-faces(flex="25" ng-click="setProfessionalType('SP')" name="'Specialist'" icon="'grade'" ng-class="{'type-active': professionalType == 'SP'}")
     md-divider
 
     .booking-step.centered-text
       .p-title Select the doctor
       md-button.bh-primary(ng-click="selectDoctor($event)") 
-        span(ng-if="!!currentDoctor") Select
-        span(ng-if="!currentDoctor") Change
-      .selected.uppercase(ng-if="!!currentDoctor") {{ currentDoctor.fullname }}
+        span(ng-if="!currentDoctor") Select
+        span(ng-if="currentDoctor") Change
+      .selected.uppercase(ng-if="currentDoctor") {{ currentDoctor.fullname }}
     md-divider
 
     .booking-step
@@ -36,10 +36,13 @@ div(layout="column"  layout-align="center center")
     .booking-step.centered-text
       p Get the best from your consultation by uploading a photo or a note
       div(layout="row")
-        md-button.bh-primary(flex="50") Attach a Photo
-        md-button.bh-primary(flex="50") Attach a Note
+        .selected
+          md-button.bh-primary(flex="50") Attach a Photo
+        .selected
+          md-button.bh-primary(flex="50") Attach a Note
     md-divider    
     
     .booking-step.centered-text
-      md-button.bh-primary(ng-click="booking($event)") Book a consultation
+      .selected
+        md-button.bh-primary(ng-click="booking($event)") Book a consultation
     

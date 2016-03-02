@@ -1,6 +1,10 @@
 md-dialog
   md-content
     .title Select Doctor
-    ul
-      li(ng-repeat="doctor in doctors")
-        div.doctors-name(ng-click="selectDoctor(doctor)") {{ doctor.fullname }}
+    md-list
+      md-list-item.md-2-line(ng-repeat="doctor in doctors" ng-click="selectDoctor(doctor)")
+        img.md-avatar(ng-src="{{ doctor.picture.thumbnail }}" alt="{{doctor.fullname}}")
+        .md-list-item-text.doctors-name(layout="column") 
+          h3 {{ doctor.fullname }}
+          h3 {{ doctor.type }}
+        
