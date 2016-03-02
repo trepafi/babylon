@@ -1,2 +1,6 @@
-div
-  .title Select Doctor
+md-dialog
+  md-content
+    .title Select Doctor
+    ul
+      li(ng-repeat="doctor in doctors")
+        div.doctors-name(ng-click="selectDoctor(doctor)") {{ doctor.fullname }}

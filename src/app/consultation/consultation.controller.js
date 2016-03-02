@@ -1,14 +1,22 @@
 'use strict';
 
 angular.module('health')
-  .controller('SelectDoctorCtrl', function ($scope) {
-
+  .controller('SelectDoctorCtrl', function SelectDoctorCtrl($scope, $mdDialog, doctors) {
+    $scope.doctors = doctors;
+    $scope.selectDoctor = function(doctor) {
+      $mdDialog.hide(doctor);
+    };
   })
   .controller('ConsultationCtrl', function ($scope, $mdDialog, $mdMedia, doctorSvc, patientSvc) {
     init();
 
     function init() {
       $scope.professionalType = 'GP';
+      $scope.doctors = [];
+      $scope.currentDoctor;
+      $scope.nextAvailable;
+      $scope.patient = {};
+
       patientSvc.getData()
         .then(function(response) {
           // console.log('patient', response);
@@ -34,10 +42,17 @@ angular.module('health')
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose:true,
-        fullscreen: useFullScreen
+        fullscreen: useFullScreen,
+        locals: {
+          doctors: $scope.doctors
+        }
       })
-      .then(function(answer) {
-
+      .then(function(doctor) {
+        $scope.currentDoctor = doctor;
+        $scope.nextAvailable = {
+          text: moment(doctor.nextAvailable).fromNow(),
+          format: moment(doctor.nextAvailable).format('ddd, MMMM Do YYYY, h:mm:ss a')
+        }
       }, function() {
 
       });
@@ -48,6 +63,8 @@ angular.module('health')
         $scope.customFullscreen = (wantsFullScreen === true);
       });
     };
+
+
 
 
 

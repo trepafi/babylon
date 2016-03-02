@@ -20,22 +20,26 @@ div(layout="column"  layout-align="center center")
 
     .booking-step.centered-text
       .p-title Select the doctor
-      md-button.bh-primary(ng-click="selectDoctor($event)") Select
-      .selected(ng-if="!!selectedDoctor") {{ selectedDoctor.name }}
+      md-button.bh-primary(ng-click="selectDoctor($event)") 
+        span(ng-if="!!currentDoctor") Select
+        span(ng-if="!currentDoctor") Change
+      .selected.uppercase(ng-if="!!currentDoctor") {{ currentDoctor.fullname }}
     md-divider
 
     .booking-step
       .p-title Next available appointment
-      .selected {{ selectedDoctor.nextAvailable }}
+      .selected(ng-if="!!currentDoctor") 
+        div {{ nextAvailable.text }}
+        div {{ nextAvailable.format }}
     md-divider
       
-    .booking-step  
+    .booking-step.centered-text
       p Get the best from your consultation by uploading a photo or a note
-      div 
-        p Attach a Photo
-        p Add a Note
+      div(layout="row")
+        md-button.bh-primary(flex="50") Attach a Photo
+        md-button.bh-primary(flex="50") Attach a Note
     md-divider    
     
-    .booking-step
-      md-button Book a consultation
+    .booking-step.centered-text
+      md-button.bh-primary(ng-click="booking($event)") Book a consultation
     

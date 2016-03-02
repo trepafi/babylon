@@ -15,7 +15,7 @@ angular.module('health')
 
     function getAvailability() {
       var now = new Date();
-      return Math.floor(now.getTime() + Math.random() * 10000);
+      return Math.floor(now.getTime() + Math.random() * 100000000);
     }
 
     function getAll() {
